@@ -1,0 +1,23 @@
+{
+  "name": "typjs",
+  "version": "1.0.0",
+  "description": "typrescript work goes in here",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenGardiner123/TypJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BenGardiner123/TypJS/issues"
+  },
+  "homepage": "https://github.com/BenGardiner123/TypJS#readme",
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}
