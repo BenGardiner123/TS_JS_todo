@@ -1,18 +1,25 @@
 //id the divs and make them variable to use in my function
-var MakelistItem = document.getElementById("list");
+var userDiv = document.getElementById("list") as HTMLUListElement | null;
 var textInput = document.getElementById("textInput") as HTMLInputElement | null;
 var inputbutton = document.getElementById("inputSomethingButton") as HTMLButtonElement | null;
+var RemoveAllButton = document.getElementById("removeAllButton") as HTMLButtonElement | null;
+//var userDiv = document.getElementById("list") as HTMLDivElement | null;
 
 // this function creates the list items an tells the input box to store the users input as the list string
 ////need to finsih of the statment 
 if (inputbutton == null) {
     alert("There is no button!")
-} else if (//test goes here//) {
-
-
+} else if (textInput == null) {
+    alert("There is a problem with some input feild!")
+}  else if (userDiv == null) {
+    alert("There is a prbolem with some list!")  
 } else {
     inputbutton.onclick = function() {
-    
+        if (textInput == null) return;
+        alert(textInput.value);
+        if (userDiv == null) return;
+        alert(userDiv.nodeValue);
+
         let MakelistItem = document.createElement("li");
         let MakelistButton = document.createElement("button");
     
@@ -20,39 +27,45 @@ if (inputbutton == null) {
     
         MakelistItem.appendChild(document.createTextNode(textInput.value));
         
-        list.appendChild(MakelistButton);
-        list.appendChild(MakelistItem);
+        userDiv.appendChild(MakelistButton);
+        userDiv.appendChild(MakelistItem);
     
     
     
         //this will remove the list item and the complete button
          
         MakelistItem.onclick = function () {
-            list.removeChild(MakelistItem);
-            list.removeChild(MakelistButton);
+            if (userDiv == null) return;
+            alert(userDiv.nodeValue);
+            userDiv.removeChild(MakelistItem);
+            userDiv.removeChild(MakelistButton);
          }
     
         //this will mark the item red for completed
         MakelistButton.onclick = function(){
+            if (userDiv == null) return;
+            alert(userDiv.nodeValue);
             if (MakelistButton.style.backgroundColor == "grey")
                 {
-                list.removeChild(MakelistButton);
+                    userDiv.removeChild(MakelistButton);
                 }
             MakelistButton.style.backgroundColor = "red";
     
         }
     
-        
-    
     }
 }
 
 
-//this button is going to remove everything from the list
-removeAllButton.onclick =  function(){
-        while (list.hasChildNodes()) {  
-        list.removeChild(list.firstChild);
+    if ( RemoveAllButton == null) {
+    alert("There is a problem with one of your missing buttons1!")
+    } else {       
+    //this button is going to remove everything from the list
+        RemoveAllButton.onclick =  function(){
+        if (userDiv == null) return;
+        alert(userDiv.nodeValue);
+        while (userDiv.hasChildNodes()) {  
+            userDiv.removeChild(userDiv.firstChild);
     }
-
-
+    }
 }
