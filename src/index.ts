@@ -9,16 +9,11 @@ var RemoveAllButton = document.getElementById("removeAllButton") as HTMLButtonEl
 ////need to finsih of the statment 
 if (inputbutton == null) {
     alert("There is no button!")
-} else if (textInput == null) {
-    alert("There is a problem with some input feild!")
-}  else if (userDiv == null) {
-    alert("There is a prbolem with some list!")  
 } else {
     inputbutton.onclick = function() {
         if (textInput == null) return;
         alert(textInput.value);
-        if (userDiv == null) return;
-        alert(userDiv.nodeValue);
+        
 
         let MakelistItem = document.createElement("li");
         let MakelistButton = document.createElement("button");
@@ -27,19 +22,26 @@ if (inputbutton == null) {
     
         MakelistItem.appendChild(document.createTextNode(textInput.value));
         
+        if (userDiv == null) return;
+        alert("the html element userDiv is null for some reason");
+
         userDiv.appendChild(MakelistButton);
         userDiv.appendChild(MakelistItem);
-    
-    
+    }
     
         //this will remove the list item and the complete button
-         
+        
+        if (MakelistIem == null){
+            alert("There is a null issue with your list item!")
+        } else {
         MakelistItem.onclick = function () {
-            if (userDiv == null) return;
+        if (userDiv == null) return;
             alert(userDiv.nodeValue);
+    
             userDiv.removeChild(MakelistItem);
             userDiv.removeChild(MakelistButton);
          }
+        }
     
         //this will mark the item red for completed
         MakelistButton.onclick = function(){
@@ -54,7 +56,7 @@ if (inputbutton == null) {
         }
     
     }
-}
+
 
 
     if ( RemoveAllButton == null) {
@@ -65,7 +67,7 @@ if (inputbutton == null) {
         if (userDiv == null) return;
         alert(userDiv.nodeValue);
         while (userDiv.hasChildNodes()) {  
-            userDiv.removeChild(userDiv.firstChild);
+            userDiv.removeChild(userDiv);
     }
     }
 }
