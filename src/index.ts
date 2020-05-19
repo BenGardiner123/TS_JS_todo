@@ -1,4 +1,6 @@
 //id the divs and make them variable to use in my function
+///not sure why this wont upload to git
+
 var userDiv = document.getElementById("list") as HTMLDivElement | null;
 var textInput = document.getElementById("textInput") as HTMLInputElement | null;
 var inputbutton = document.getElementById("inputSomethingButton") as HTMLButtonElement | null;
