@@ -1,34 +1,94 @@
 //id the divs and make them variable to use in my function
 ///not sure why this wont upload to git
 
-var newListItem = document.getElementById("theList") as HTMLDivElement | null;
+var userDiv = document.getElementById("list") as HTMLDivElement | null;
+var textInput = document.getElementById("textInput") as HTMLInputElement | null;
 var inputbutton = document.getElementById("inputSomethingButton") as HTMLButtonElement | null;
 var RemoveAllButton = document.getElementById("removeAllButton") as HTMLButtonElement | null;
-//var newListItem = document.getElementById("list") as HTMLDivElement | null;
+//var userDiv = document.getElementById("list") as HTMLDivElement | null;
 
-inputbutton?.onclick = function(){
-    addli(ul);
-}
+// this function creates the list items an tells the input box to store the users input as the list string
+////need to finsih of the statment 
 
- function addli(targetUi) {
-     
-    var TextInput = (document.getElementById("textInput") as HTMLInputElement).value, 
-    li = document.createElement('li'), 
-    textNode = document.createTextNode(TextInput + ''),
-    rmovebutton = document.createElement ('button');
-    document.getElementById(TextInput)?.Value = "";
+///console.log to checkprogress
 
-    if (TextInput == null){
-    alert ("somthing wrong");
-    return false;
+if (inputbutton == null) {
+    alert("There is no button!")
+} else {
+    inputbutton.onclick = function () {
+        if (textInput == null) {
+            alert("the text input element is null for some reason");
+            return;
+        }
+        let MakelistItem = document.createElement("li");
+        let MakelistButton = document.createElement("button");
+
+        MakelistButton.innerHTML = "complete";
+
+        MakelistItem.appendChild(document.createTextNode(textInput.value));
+
+        if (userDiv == null) {
+            alert("the html element userDiv is null for some reason");
+            return;
+        }
+
+        userDiv.appendChild(MakelistButton);
+        userDiv.appendChild(MakelistItem);
+
+
+        //this will remove the list item and the complete button
+        //function run at diff time - 
+        
+            MakelistItem.onclick = function () {
+                if (MakelistItem == null){
+                alert("There is a problem with your list somewhere"); 
+                } else if (userDiv == null){
+                alert("There is a problem with your userdiv somewhere");  
+                } else {
+                userDiv.removeChild(MakelistItem);
+                userDiv.removeChild(MakelistButton);
+                }
+
+            }
+        
+
+        //this will mark the item red for completed
+        MakelistButton.onclick = function () {
+            if (userDiv == null) {
+                alert("There is a null issue with your list item!")
+            } else if (MakelistButton.style.backgroundColor == "grey") {
+                userDiv.removeChild(MakelistButton);
+            }
+            MakelistButton.style.backgroundColor = "red";
+
+        }
+
+        }
     }
- 
-    li.appendChild(textNode);
-    li.appendChild()
 
 
+
+if (RemoveAllButton == null) {
+    alert("There is a problem with one of your missing buttons1!")
+} else {
+    //this button is going to remove everything from the list
+    RemoveAllButton.onclick = function () {
+            if (RemoveAllButton == null) {
+            alert("There is a problem with one of your missing buttons1!")
+            return;
+            } else if (userDiv == null){
+            alert("There is a problem with a missing div called userdiv!")
+            return;    
+            } else{
+            while (userDiv.hasChildNodes()) {
+                userDiv.removeChild(userDiv.children[0]);
+                ///or user.div.innerhtml = " "///
+                /// the main reason for using the [with an index of 0] is because remove child is an array
+            }
+
+        }
+    }
 }
-
 
 
 

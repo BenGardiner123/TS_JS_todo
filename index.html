@@ -8,36 +8,28 @@
     <title>JavaScript - TODO</title>
 </head>
 <body>
-  
-    <div id="container">
+    <div class="main">
+
+        <div id="container">
+            <h1>Your TODO list for today!</h1>
+            <div>
+                <input id="textInput" type="text" placeholder="Type your new item here please" name="input">
+            </div>
             
-        
-        <div class="main" id="main">
-            <h1>JavaScript TODO list</h1>
-            <input id="textInput" type="text" placeholder="Type your new item here please">
+            <div class="buttons">
+                <button id="inputSomethingButton" type="button">Add</button>
+                <button id="removeAllButton" type="button">Go Nuclear!</button>       
+            </div>
+            
+
+            <div id="list">
                 
-            <button id="inputSomethingButton" type="button">Add</button>
-            <button id="removeAllButton" type="button">Go Nuclear!</button>
+            </div>
+
+
         </div>
 
-        <ul id="theList">
-            <li></li>
-            <li></li>
-        </ul>
-
-
-
-
-        
-    </div>
-            
-
-    
-
-
-
-
-
+</div>
 <!-- https://github.com/BenGardiner123/TS_JS_todo.git -->
     
     <script type="text/javascript" src="dist/index.js"></script>
